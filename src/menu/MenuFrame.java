@@ -17,6 +17,8 @@ public class MenuFrame extends JFrame {
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu mnAgregar;
+	private JMenuItem mntmAgregar;
+	private JMenuItem mntmListar;
 
 
 	public MenuFrame() {
@@ -35,11 +37,11 @@ public class MenuFrame extends JFrame {
 		mnAgregar.setForeground(Color.BLACK);
 		menuBar.add(mnAgregar);
 		
-		JMenuItem mntmAgregar = new JMenuItem("Agregar");
+		mntmAgregar = new JMenuItem("Agregar");
 		mntmAgregar.setHorizontalAlignment(SwingConstants.LEFT);
 		mnAgregar.add(mntmAgregar);
 		
-		JMenuItem mntmListar = new JMenuItem("Listar");
+		mntmListar = new JMenuItem("Listar");
 		mntmListar.setHorizontalAlignment(SwingConstants.LEFT);
 		mnAgregar.add(mntmListar);
 		
