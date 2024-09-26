@@ -1,8 +1,9 @@
 package principal;
 
-import agregar.Categoria;
+import java.util.ArrayList;
+
+import dominio.Genero;
 import dominio.Pelicula;
-import menu.MenuFrame;
 
 public class Principal 
 {
@@ -10,12 +11,16 @@ public class Principal
 	public static void main(String[] args) {
 		// pruebas...
 		
-		Categoria c = new Categoria();
-		c.setNombre("accion");
+		Genero g1 = new Genero("Acción");
+		Genero g2 = new Genero("Animación");
 		
-		Pelicula p = new Pelicula("terminator2",c);
+		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+		peliculas.add(new Pelicula("Terminator", g1));
+		peliculas.add(new Pelicula("Lluvia de Hamburguesas", g2));
 		
-		System.out.println("La pelicula en cuestion es:  " + p);
+		for(Pelicula p: peliculas) {
+			System.out.println("La pelicula en cuestion es:  " + p);
+		}
 		
 		MenuFrame menu = new MenuFrame();
 	}

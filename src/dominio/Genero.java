@@ -1,20 +1,25 @@
-package agregar;
+package dominio;
 
-public class Categoria {
+public class Genero {
 	
 	// Atributos
 	
-	private int id;
+	private static int idCounter = 0;
+	private final int id;
 	private String nombre;
+	
+	public Genero(String nombre) {
+		idCounter++;
+		this.id = idCounter;
+		this.nombre = nombre;
+	}
 	
 	// Setters and getters
 	
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}

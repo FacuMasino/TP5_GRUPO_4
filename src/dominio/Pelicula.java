@@ -1,38 +1,43 @@
 package dominio;
 
-import agregar.Categoria;
-
 public class Pelicula {
 
-	private static int id=0;
+	// Atributos
+	private static int idCounter=0;
+	private final int id;
 	private String nombre;
-	private Categoria categoria;
+	private Genero genero;
 	
-	
-	public Pelicula(String nombre, Categoria cat) {
-		id++;
+	public Pelicula(String nombre, Genero cat) {
+		idCounter++;
+		this.id = idCounter;
 		this.nombre = nombre;
-		this.categoria=new Categoria();
-		this.categoria.setNombre(cat.getNombre()); 
+		this.genero = cat;
 	}
-
 	
+	// Setters Getters 
+	public int getId() {
+		return id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Categoria getCategoria() {
-		return categoria;
+	public Genero getGenero() {
+		return genero;
 	}
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
+
+	// Métodos
 	@Override
 	public String toString() {
-		return "Pelicula [nombre=" + nombre + ", categoria=" + categoria + "]";
+		return "Pelicula [id=" + id + ", nombre=" + nombre + ", genero=" + genero + "]";
 	}
+	
 }	
 	
 	

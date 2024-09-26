@@ -1,4 +1,4 @@
-package menu;
+package principal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
