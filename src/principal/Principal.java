@@ -22,6 +22,6 @@ public class Principal
 			System.out.println("La pelicula en cuestion es:  " + p);
 		}
 		
-		MenuFrame menu = new MenuFrame();
+		JFPrincipal menu = new JFPrincipal();		
 	}
 }
