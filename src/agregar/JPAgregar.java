@@ -11,8 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-public class JPAgregar extends JPanel {
-
+public class JPAgregar extends JPanel
+{
 	private static final long serialVersionUID = 1L;
 	private JPanel JPMainGroup;
 	private JPanel JPContainerGrid;
@@ -23,7 +23,8 @@ public class JPAgregar extends JPanel {
 	private JLabel lblGenero;
 	private JComboBox cbxGenero;
 	
-	public JPAgregar() {
+	public JPAgregar()
+	{
 		setLayout(new BorderLayout(0, 0));
 		
 		JPMainGroup = new JPanel();
@@ -65,6 +66,7 @@ public class JPAgregar extends JPanel {
 					.addComponent(JPContainerGrid, GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
 					.addGap(50))
 		);
+		
 		gl_JPMainGroup.setVerticalGroup(
 			gl_JPMainGroup.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_JPMainGroup.createSequentialGroup()
@@ -72,8 +74,8 @@ public class JPAgregar extends JPanel {
 					.addComponent(JPContainerGrid, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
 					.addGap(30))
 		);
+		
 		JPMainGroup.setLayout(gl_JPMainGroup);
 		add(JPMainGroup);
-
 	}
 }

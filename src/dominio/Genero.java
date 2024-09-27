@@ -1,14 +1,17 @@
 package dominio;
 
-public class Genero {
-	
+public class Genero
+{	
 	// Atributos
 	
 	private static int idCounter = 0;
 	private final int id;
 	private String nombre;
 	
-	public Genero(String nombre) {
+	// Constructor
+	
+	public Genero(String nombre)
+	{
 		idCounter++;
 		this.id = idCounter;
 		this.nombre = nombre;
@@ -16,25 +19,26 @@ public class Genero {
 	
 	// Setters and getters
 	
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
 
-	public String getNombre() {
+	public String getNombre()
+	{
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	
+	public void setNombre(String nombre)
+	{
 		this.nombre = nombre;
-		
-	//toString
-		
 	}
+	
+	// Métodos
+	
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return  id + " - " +  nombre ;
-	} 
-	
-	
-	
-	
+	}
 }

@@ -1,24 +1,24 @@
 package principal;
 
 import java.util.ArrayList;
-
 import dominio.Genero;
 import dominio.Pelicula;
 
 public class Principal 
 {
-
-	public static void main(String[] args) {
-		// pruebas...
+	public static void main(String[] args)
+	{
+		// Pruebas
 		
-		Genero g1 = new Genero("Acción");
-		Genero g2 = new Genero("Animación");
+		Genero g1 = new Genero("AcciÃ³n");
+		Genero g2 = new Genero("AnimaciÃ³n");
 		
 		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
 		peliculas.add(new Pelicula("Terminator", g1));
 		peliculas.add(new Pelicula("Lluvia de Hamburguesas", g2));
 		
-		for(Pelicula p: peliculas) {
+		for(Pelicula p: peliculas)
+		{
 			System.out.println("La pelicula en cuestion es:  " + p);
 		}
 		
