@@ -9,6 +9,9 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.BorderLayout;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+
+import dominio.Genero;
+
 import java.awt.Font;
 
 public class JPAgregar extends JPanel
@@ -21,7 +24,7 @@ public class JPAgregar extends JPanel
 	private JLabel lblIdValue;
 	private JLabel lblNombre;
 	private JLabel lblGenero;
-	private JComboBox cbxGenero;
+	private JComboBox<Genero> cbxGenero;
 	
 	public JPAgregar()
 	{
@@ -52,7 +55,13 @@ public class JPAgregar extends JPanel
 		lblGenero.setFont(new Font("Tahoma", Font.BOLD, 11));
 		JPContainerGrid.add(lblGenero);
 		
-		cbxGenero = new JComboBox();
+		cbxGenero = new JComboBox<Genero>();
+		cbxGenero.addItem(new Genero("Seleccione un género"));
+		cbxGenero.addItem(new Genero("Terror"));
+		cbxGenero.addItem(new Genero("Acción"));
+		cbxGenero.addItem(new Genero("Suspenso"));
+		cbxGenero.addItem(new Genero("Romántica"));
+
 		JPContainerGrid.add(cbxGenero);
 		
 		JButton btnAceptar = new JButton("Aceptar");
