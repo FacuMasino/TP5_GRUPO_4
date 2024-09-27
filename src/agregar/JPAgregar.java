@@ -56,11 +56,11 @@ public class JPAgregar extends JPanel
 		JPContainerGrid.add(lblGenero);
 		
 		cbxGenero = new JComboBox<Genero>();
-		cbxGenero.addItem(new Genero("Seleccione un gÈnero"));
+		cbxGenero.addItem(new Genero("Seleccione un g√©nero"));
 		cbxGenero.addItem(new Genero("Terror"));
-		cbxGenero.addItem(new Genero("AcciÛn"));
+		cbxGenero.addItem(new Genero("Acci√≥n"));
 		cbxGenero.addItem(new Genero("Suspenso"));
-		cbxGenero.addItem(new Genero("Rom·ntica"));
+		cbxGenero.addItem(new Genero("Rom√°ntica"));
 
 		JPContainerGrid.add(cbxGenero);
 		

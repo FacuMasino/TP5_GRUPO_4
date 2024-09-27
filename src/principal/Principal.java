@@ -10,7 +10,7 @@ public class Principal
 	{
 		// Pruebas
 		
-		Genero g1 = new Genero("Acción");
+		/*Genero g1 = new Genero("Acción");
 		Genero g2 = new Genero("Animación");
 		
 		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
@@ -20,7 +20,7 @@ public class Principal
 		for(Pelicula p: peliculas)
 		{
 			System.out.println("La pelicula en cuestion es:  " + p);
-		}
+		}*/
 		
 		JFPrincipal menu = new JFPrincipal();		
 	}

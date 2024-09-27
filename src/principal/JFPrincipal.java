@@ -2,10 +2,11 @@ package principal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import agregar.JPAgregar;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Color;
@@ -13,11 +14,17 @@ import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import agregar.JPAgregar;
+import dominio.Pelicula;
+import listar.JPListar;
 
 public class JFPrincipal extends JFrame
 {
 	private static final long serialVersionUID = 1L;
+	private DefaultListModel<Pelicula> peliculasDLM;
 	private JPanel contentPane;
+	private JPAgregar jpAgregar;
+	private JPListar jpListar;
 	private JMenuBar menuBar;
 	private JMenu menuPeliculas;
 	private JMenuItem menuItemAgregar;
@@ -25,6 +32,8 @@ public class JFPrincipal extends JFrame
 
 	public JFPrincipal()
 	{
+		peliculasDLM = new DefaultListModel<Pelicula>();
+
 		// JFrame y Panel Principal
 
 		setTitle("Programa");
@@ -44,15 +53,11 @@ public class JFPrincipal extends JFrame
 		menuPeliculas.setForeground(Color.BLACK);
 		menuBar.add(menuPeliculas);
 		
+		// Agregar
+		
 		menuItemAgregar = new JMenuItem("Agregar");
 		menuItemAgregar.setHorizontalAlignment(SwingConstants.LEFT);
 		menuPeliculas.add(menuItemAgregar);
-		
-		menuItemListar = new JMenuItem("Listar");
-		menuItemListar.setHorizontalAlignment(SwingConstants.LEFT);
-		menuPeliculas.add(menuItemListar);
-		
-		// Agregar
 
 		menuItemAgregar.addActionListener(
 			new ActionListener()
@@ -60,8 +65,29 @@ public class JFPrincipal extends JFrame
 				public void actionPerformed(ActionEvent arg0)
 				{
 					contentPane.removeAll();
-					JPAgregar jpAgregar = new JPAgregar();
+					jpAgregar = new JPAgregar();
 					contentPane.add(jpAgregar);
+					contentPane.repaint();
+					contentPane.revalidate();
+				}
+			}
+		);
+		
+		// Listar
+		
+		menuItemListar = new JMenuItem("Listar");
+		menuItemListar.setHorizontalAlignment(SwingConstants.LEFT);
+		menuPeliculas.add(menuItemListar);
+		
+		menuItemListar.addActionListener(
+			new ActionListener()
+			{
+				public void actionPerformed(ActionEvent arg0)
+				{
+					contentPane.removeAll();
+					jpListar = new JPListar();
+					jpListar.setPeliculasDLM(peliculasDLM);
+					contentPane.add(jpListar);
 					contentPane.repaint();
 					contentPane.revalidate();
 				}
