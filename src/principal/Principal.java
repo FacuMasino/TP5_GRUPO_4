@@ -1,9 +1,5 @@
 package principal;
 
-import java.util.ArrayList;
-import dominio.Genero;
-import dominio.Pelicula;
-
 public class Principal 
 {
 	public static void main(String[] args)

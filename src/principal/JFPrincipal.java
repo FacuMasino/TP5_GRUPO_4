@@ -1,21 +1,19 @@
 package principal;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
-import java.awt.Color;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import agregar.JPAgregar;
 import dominio.Pelicula;
+import agregar.JPAgregar;
 import listar.JPListar;
 
 public class JFPrincipal extends JFrame
@@ -62,10 +60,11 @@ public class JFPrincipal extends JFrame
 		menuItemAgregar.addActionListener(
 			new ActionListener()
 			{
-				public void actionPerformed(ActionEvent arg0)
+				public void actionPerformed(ActionEvent arg)
 				{
 					contentPane.removeAll();
 					jpAgregar = new JPAgregar();
+					jpAgregar.setPeliculasDLM(peliculasDLM);
 					contentPane.add(jpAgregar);
 					contentPane.repaint();
 					contentPane.revalidate();
@@ -82,7 +81,7 @@ public class JFPrincipal extends JFrame
 		menuItemListar.addActionListener(
 			new ActionListener()
 			{
-				public void actionPerformed(ActionEvent arg0)
+				public void actionPerformed(ActionEvent arg)
 				{
 					contentPane.removeAll();
 					jpListar = new JPListar();

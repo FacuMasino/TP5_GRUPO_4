@@ -1,22 +1,25 @@
 package agregar;
 
-import javax.swing.JPanel;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.BorderLayout;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
-
 import dominio.Genero;
-
-import java.awt.Font;
+import dominio.Pelicula;
 
 public class JPAgregar extends JPanel
 {
 	private static final long serialVersionUID = 1L;
+	private DefaultListModel<Pelicula> peliculasDLM;
 	private JPanel JPMainGroup;
 	private JPanel JPContainerGrid;
 	private JTextField txtNombre;
@@ -67,6 +70,18 @@ public class JPAgregar extends JPanel
 		JButton btnAceptar = new JButton("Aceptar");
 		JPContainerGrid.add(btnAceptar);
 		
+		btnAceptar.addActionListener(
+			new ActionListener()
+			{
+				public void actionPerformed(ActionEvent arg)
+				{
+					Genero genero = new Genero("nuevogenero"); // Hack : Reemplazar "nuevogenero" por lo que elija el usuario del Jcombo
+					Pelicula pelicula = new Pelicula("nuevapeli", genero); // Hack : Reemplazar "nuevapeli" por lo que ponga el usuario en el txtField
+					peliculasDLM.addElement(pelicula);
+				}
+			}
+		);
+		
 		GroupLayout gl_JPMainGroup = new GroupLayout(JPMainGroup);
 		gl_JPMainGroup.setHorizontalGroup(
 			gl_JPMainGroup.createParallelGroup(Alignment.LEADING)
@@ -86,5 +101,15 @@ public class JPAgregar extends JPanel
 		
 		JPMainGroup.setLayout(gl_JPMainGroup);
 		add(JPMainGroup);
+	}
+	
+	public void setPeliculasDLM(DefaultListModel<Pelicula> peliculasDLM)
+	{
+		this.peliculasDLM = peliculasDLM;
+		
+		if (this.peliculasDLM == null)
+		{
+			this.peliculasDLM = new DefaultListModel<Pelicula>();
+		}
 	}
 }

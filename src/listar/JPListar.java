@@ -1,7 +1,7 @@
 package listar;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
