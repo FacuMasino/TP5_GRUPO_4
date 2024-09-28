@@ -13,13 +13,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 import dominio.Pelicula;
+import dominio.PeliculasListModel;
 import agregar.JPAgregar;
 import listar.JPListar;
 
 public class JFPrincipal extends JFrame
 {
 	private static final long serialVersionUID = 1L;
-	private DefaultListModel<Pelicula> peliculasDLM;
+	private PeliculasListModel peliculasLM;
 	private JPanel contentPane;
 	private JPAgregar jpAgregar;
 	private JPListar jpListar;
@@ -30,7 +31,7 @@ public class JFPrincipal extends JFrame
 
 	public JFPrincipal()
 	{
-		peliculasDLM = new DefaultListModel<Pelicula>();
+		peliculasLM = new PeliculasListModel();
 
 		// JFrame y Panel Principal
 
@@ -64,7 +65,7 @@ public class JFPrincipal extends JFrame
 				{
 					contentPane.removeAll();
 					jpAgregar = new JPAgregar();
-					jpAgregar.setPeliculasDLM(peliculasDLM);
+					jpAgregar.setPeliculasDLM(peliculasLM);
 					contentPane.add(jpAgregar);
 					contentPane.repaint();
 					contentPane.revalidate();
@@ -85,7 +86,7 @@ public class JFPrincipal extends JFrame
 				{
 					contentPane.removeAll();
 					jpListar = new JPListar();
-					jpListar.setPeliculasDLM(peliculasDLM);
+					jpListar.setPeliculasLM(peliculasLM);
 					contentPane.add(jpListar);
 					contentPane.repaint();
 					contentPane.revalidate();

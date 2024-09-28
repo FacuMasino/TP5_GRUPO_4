@@ -15,11 +15,12 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import dominio.Genero;
 import dominio.Pelicula;
+import dominio.PeliculasListModel;
 
 public class JPAgregar extends JPanel
 {
 	private static final long serialVersionUID = 1L;
-	private DefaultListModel<Pelicula> peliculasDLM;
+	private PeliculasListModel peliculasLM;
 	private JPanel JPMainGroup;
 	private JPanel JPContainerGrid;
 	private JTextField txtNombre;
@@ -76,8 +77,13 @@ public class JPAgregar extends JPanel
 				public void actionPerformed(ActionEvent arg)
 				{
 					Genero genero = new Genero("nuevogenero"); // Hack : Reemplazar "nuevogenero" por lo que elija el usuario del Jcombo
-					Pelicula pelicula = new Pelicula("nuevapeli", genero); // Hack : Reemplazar "nuevapeli" por lo que ponga el usuario en el txtField
-					peliculasDLM.addElement(pelicula);
+					Pelicula pelicula = new Pelicula("AA BB", genero); // Hack : Reemplazar "nuevapeli" por lo que ponga el usuario en el txtField
+					Pelicula pelicula2 = new Pelicula("aa dd", genero); // prueba lista ordenada
+					Pelicula pelicula3 = new Pelicula("zz cc", new Genero("aaa")); // prueba lista ordenada
+					peliculasLM.addElement(pelicula3);
+					peliculasLM.addElement(pelicula);
+					peliculasLM.addElement(pelicula2);
+					peliculasLM.addElement(pelicula); // No se agrega de nuevo porque es duplicado
 				}
 			}
 		);
@@ -103,13 +109,13 @@ public class JPAgregar extends JPanel
 		add(JPMainGroup);
 	}
 	
-	public void setPeliculasDLM(DefaultListModel<Pelicula> peliculasDLM)
+	public void setPeliculasDLM(PeliculasListModel peliculasLM)
 	{
-		this.peliculasDLM = peliculasDLM;
+		this.peliculasLM = peliculasLM;
 		
-		if (this.peliculasDLM == null)
+		if (this.peliculasLM == null)
 		{
-			this.peliculasDLM = new DefaultListModel<Pelicula>();
+			this.peliculasLM = new PeliculasListModel();
 		}
 	}
 }

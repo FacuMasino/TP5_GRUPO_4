@@ -1,6 +1,6 @@
 package dominio;
 
-public class Pelicula
+public class Pelicula implements Comparable<Pelicula>
 {
 	// Atributos
 	
@@ -53,4 +53,46 @@ public class Pelicula
 	{
 		return "Pelicula [id=" + id + ", nombre=" + nombre + ", genero=" + genero + "]";
 	}
+
+	@Override
+	public int compareTo(Pelicula peli) {
+		if(peli.getNombre().toLowerCase().compareTo(this.nombre.toLowerCase()) == 0) return 0;
+		if(peli.getNombre().toLowerCase().compareTo(this.nombre.toLowerCase()) < 0) return 1;
+		return -1;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		
+		Pelicula other = (Pelicula) obj;
+		
+		if (genero == null) {
+			if (other.genero != null) return false;
+		}
+		else if (!genero.equals(other.genero)) {
+			return false;			
+		}
+		if (id != other.id) return false;
+		if (nombre == null) {
+			if (other.nombre != null) return false;
+		} 
+		else if (!nombre.equals(other.nombre)) {
+			return false;
+		}
+		return true;
+	}
+
 }
