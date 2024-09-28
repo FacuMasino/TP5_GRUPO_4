@@ -15,14 +15,17 @@ public class Genero
 		idCounter++;
 		this.id = idCounter;
 		this.nombre = nombre;
-	}
+	}	
+	
 	
 	// Setters and getters
 	
+
 	public int getId()
 	{
 		return id;
 	}
+	
 
 	public String getNombre()
 	{

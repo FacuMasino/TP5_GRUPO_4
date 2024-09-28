@@ -51,7 +51,7 @@ public class Pelicula implements Comparable<Pelicula>
 	@Override
 	public String toString()
 	{
-		return "Pelicula [id=" + id + ", nombre=" + nombre + ", genero=" + genero + "]";
+		return "(ID) " + id + " - " + nombre + " - " + genero ;
 	}
 
 	@Override

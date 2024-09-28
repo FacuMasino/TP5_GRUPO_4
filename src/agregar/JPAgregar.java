@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
@@ -74,17 +75,20 @@ public class JPAgregar extends JPanel
 		btnAceptar.addActionListener(
 			new ActionListener()
 			{
+						
 				public void actionPerformed(ActionEvent arg)
-				{
-					Genero genero = new Genero("nuevogenero"); // Hack : Reemplazar "nuevogenero" por lo que elija el usuario del Jcombo
-					Pelicula pelicula = new Pelicula("AA BB", genero); // Hack : Reemplazar "nuevapeli" por lo que ponga el usuario en el txtField
-					Pelicula pelicula2 = new Pelicula("aa dd", genero); // prueba lista ordenada
-					Pelicula pelicula3 = new Pelicula("zz cc", new Genero("aaa")); // prueba lista ordenada
-					peliculasLM.addElement(pelicula3);
+				{	
+									
+					Pelicula pelicula = new Pelicula(txtNombre.getText(). toUpperCase() ,(Genero) cbxGenero.getSelectedItem());
 					peliculasLM.addElement(pelicula);
-					peliculasLM.addElement(pelicula2);
+					
 					peliculasLM.addElement(pelicula); // No se agrega de nuevo porque es duplicado
+					JOptionPane.showMessageDialog(null, "Película agregada exitosamente");
+					txtNombre.setText("");
+					cbxGenero.setSelectedIndex(0);
+				
 				}
+				
 			}
 		);
 		
