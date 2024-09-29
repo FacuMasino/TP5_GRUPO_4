@@ -66,6 +66,7 @@ public class JPAgregar extends JPanel
 		cbxGenero.addItem(new Genero("Acción"));
 		cbxGenero.addItem(new Genero("Suspenso"));
 		cbxGenero.addItem(new Genero("Romántica"));
+	
 
 		JPContainerGrid.add(cbxGenero);
 		
@@ -80,13 +81,19 @@ public class JPAgregar extends JPanel
 				{	
 									
 					Pelicula pelicula = new Pelicula(txtNombre.getText(). toUpperCase() ,(Genero) cbxGenero.getSelectedItem());
-					peliculasLM.addElement(pelicula);
-					
-					peliculasLM.addElement(pelicula); // No se agrega de nuevo porque es duplicado
-					JOptionPane.showMessageDialog(null, "Película agregada exitosamente");
-					txtNombre.setText("");
-					cbxGenero.setSelectedIndex(0);
-				
+					if(txtNombre.getText().equals("") || cbxGenero.getSelectedIndex()==0)
+					{
+						JOptionPane.showMessageDialog(null,"Error en los campos..");
+					}
+					else 
+					{
+						peliculasLM.addElement(pelicula);
+						
+						//peliculasLM.addElement(pelicula); // No se agrega de nuevo porque es duplicado
+						JOptionPane.showMessageDialog(null, "Película agregada exitosamente");
+						txtNombre.setText("");
+						cbxGenero.setSelectedIndex(0);						
+					}
 				}
 				
 			}

@@ -40,7 +40,7 @@ public class JPListar extends JPanel
 		add(peliculasLst, BorderLayout.CENTER);
 		
 		
-		JOptionPane.showMessageDialog(null,"No hay películas en la lista");
+		//JOptionPane.showMessageDialog(null,"No hay películas en la lista");
 	
 	}
 	
