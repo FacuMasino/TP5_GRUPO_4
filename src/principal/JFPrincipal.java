@@ -6,11 +6,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import dominio.Pelicula;
 import dominio.PeliculasListModel;
@@ -87,10 +89,20 @@ public class JFPrincipal extends JFrame
 				{
 					contentPane.removeAll();
 					jpListar = new JPListar();
+					
 					jpListar.setPeliculasLM(peliculasLM);
-					contentPane.add(jpListar);
-					contentPane.repaint();
-					contentPane.revalidate();
+					
+						if (peliculasLM.getSize() == 0 )
+						{
+							JOptionPane.showMessageDialog(null,"No hay películas en la lista");
+						}
+						else
+						{
+							contentPane.add(jpListar);
+							contentPane.repaint();
+							contentPane.revalidate();
+						}
+							
 				}
 			}
 		);

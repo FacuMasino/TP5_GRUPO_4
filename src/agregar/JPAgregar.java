@@ -78,22 +78,9 @@ public class JPAgregar extends JPanel
 			{
 						
 				public void actionPerformed(ActionEvent arg)
-				{	
-									
+				{						
 					Pelicula pelicula = new Pelicula(txtNombre.getText(). toUpperCase() ,(Genero) cbxGenero.getSelectedItem());
-					if(txtNombre.getText().equals("") || cbxGenero.getSelectedIndex()==0)
-					{
-						JOptionPane.showMessageDialog(null,"Error en los campos..");
-					}
-					else 
-					{
-						peliculasLM.addElement(pelicula);
-						
-						//peliculasLM.addElement(pelicula); // No se agrega de nuevo porque es duplicado
-						JOptionPane.showMessageDialog(null, "Película agregada exitosamente");
-						txtNombre.setText("");
-						cbxGenero.setSelectedIndex(0);						
-					}
+					verificarIngreso(pelicula);
 				}
 				
 			}
@@ -129,4 +116,34 @@ public class JPAgregar extends JPanel
 			this.peliculasLM = new PeliculasListModel();
 		}
 	}
+	
+	public void verificarIngreso(Pelicula pelicula) 
+	{
+		
+		if(txtNombre.getText().equals("") && cbxGenero.getSelectedIndex()>0)
+		{
+			JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+			
+			else if (txtNombre.getText().equals("") && cbxGenero.getSelectedIndex()== 0) 
+				{
+					JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película y el género", "Error", JOptionPane.ERROR_MESSAGE);						
+				}
+				
+					else if (txtNombre.getText() != ("") && cbxGenero.getSelectedIndex()== 0)
+						{
+							JOptionPane.showMessageDialog(null, "Debe ingresar el género", "Error", JOptionPane.ERROR_MESSAGE);
+						}
+		
+						else 
+							{
+								peliculasLM.addElement(pelicula);
+								//peliculasLM.addElement(pelicula); // No se agrega de nuevo porque es duplicado
+								JOptionPane.showMessageDialog(null, "Película agregada exitosamente");
+								txtNombre.setText("");
+								cbxGenero.setSelectedIndex(0);	
+							}
+		
+	}
+	
 }

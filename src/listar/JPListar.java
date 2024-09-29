@@ -2,11 +2,8 @@ package listar;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
-import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
-
 import dominio.Pelicula;
 import dominio.PeliculasListModel;
 
@@ -19,6 +16,7 @@ public class JPListar extends JPanel
 	private JPanel fillPanel1;
 	private JPanel fillPanel2;
 	private JPanel fillPanel3;
+	
 	
 	public JPListar()
 	{
@@ -39,11 +37,9 @@ public class JPListar extends JPanel
 		peliculasLst = new JList<Pelicula>();
 		add(peliculasLst, BorderLayout.CENTER);
 		
-		
-		//JOptionPane.showMessageDialog(null,"No hay películas en la lista");
-	
 	}
 	
+
 	public void setPeliculasLM(PeliculasListModel peliculasLM)
 	{
 		
